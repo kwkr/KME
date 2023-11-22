@@ -1,9 +1,12 @@
 {
     "clearMocks": true,
     "moduleNameMapper": {
-        "@code/(.*)": [
-            "<rootDir>/src/day2/$1"
+        "@utils/(.*)": [
+            "<rootDir>/utils/$1"
         ]
     },
+    "testMatch": [
+        "<rootDir>/today/**/*.spec.ts"
+    ],
     "preset": "ts-jest"
 }

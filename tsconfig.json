@@ -9,15 +9,17 @@
         "esModuleInterop": true,
         "target": "esnext",
         "module": "commonjs",
-        "baseUrl": "src",
+        "baseUrl": "./",
         "paths": {
-            "@code/*": [
-                "day4/*"
+            "@utils/*": [
+                "./utils/*"
             ]
         }
     },
     "include": [
-        "./src/**/*"
+        "./exercises/**/*",
+        "./utils/**/*",
+        "./today/**/*"
     ],
     "exclude": [
         "node_modules"
