@@ -10,20 +10,31 @@ const todayPath = path.join(__dirname, "..", "today");
 
 const statsData = loadStats();
 
+const pickFilter = process.argv[2];
+
 clearToday();
 const allElements = fs.readdirSync(exercisesPath);
+let exercise;
+if (pickFilter) {
+    exercise = allElements.find(i => i.includes(pickFilter));
+}
 
-const randomExercise = allElements[Math.floor(Math.random() * allElements.length)];
+if (!exercise) {
+    exercise = allElements[Math.floor(Math.random() * allElements.length)];
+
+}
+console.log('Your exercise is:', exercise)
+
 const now = new Date();
 statsData.current = {
     start: now.toISOString(),
-    name: randomExercise
+    name: exercise
 };
 
 saveStats(statsData);
 
-fs.copyFileSync(`${exercisesPath}/${randomExercise}/index.ts`, `${todayPath}/index.ts`);
-fs.copyFileSync(`${exercisesPath}/${randomExercise}/index.spec.ts`, `${todayPath}/index.spec.ts`);
+fs.copyFileSync(`${exercisesPath}/${exercise}/index.ts`, `${todayPath}/index.ts`);
+fs.copyFileSync(`${exercisesPath}/${exercise}/index.spec.ts`, `${todayPath}/index.spec.ts`);
 
 
 function clearToday() {

@@ -1,80 +1,59 @@
-[Extending on](https://github.com/ThePrimeagen/kata-machine)
+# Kata Machine Extended
+[Extending on the original project of ThePrimeagen](https://github.com/ThePrimeagen/kata-machine)
 
-### If you have a suggestion
-make an issue and we will come up with the potential name.
+## Idea
+Practice common algorithms and data structures and show-off your progress. Your progress is saved in `stats.json`. This can be used to generate some cool badges on your GitHub profile. The result is visible below:
+<br><br>
+<img src="https://60zb8i9g0l.execute-api.eu-central-1.amazonaws.com/v1?render=kwkr"/>
+<br>
 
-### WARNING
-I have just started to add algorithms, so the number of supported algorithms is
-limited at the moment, but will grow fairly quick.
+This fetches your `stats.json` and renders your personal badge.
 
-### WARNING
-OUT OF DATE.  We have quite a few more.  need to update
-### Supported Algorithm
-* Insertion sort
-* Merge sort
-* QuickSort
-* Prim's MST (Adjacency List)
-* Dijkstra's Shortest Path (Adjacency List)
-
-### Supported Data Structures
-* Singly linked list
-* Doubly linked list
-* Queue
-* Stack
-* Graph with Adjacency List
-* Graph with Adjacency Matrix (untested)
-
-### How It Works
-
+## How to use it?
 Make sure you have [Node.js](https://nodejs.org/en/) and yarn installed: `npm install --global yarn`
 
-clone the repo and install the dependencies
+Clone the repo and install the dependencies
 
 ```bash
 yarn install
 ```
 
-edit the `ligma.config.js` file
-```javascript
-module.exports = {
-    dsa: [
-        "InsertionSort",
-        "MergeSort",
-        "Queue",
-        "Stack",
-        "QuickSort",
-        "DijkstraList",
-        "PrimsList",
-    ],
-}
-```
+Start with an exercise. This command will pick some random exercise for you. Your task is to implement it in `today/index.ts`. If you want to pick some specific exercise, you can add a pattern to include after the command.
 
-create a day of katas, this will use the list in the `ligma.config.js`.
 ```bash
-yarn generate
+yarn start # optionally, for example "BinarySearch"
 ```
 
-this will progressively create folders named
+After your are done with the implementation you can check your solution by running:
 
-```
-src/day1
-src/day2
-...
+```bash
+yarn attempt
 ```
 
-`yarn generate` will also update the `tsconfig.json` and `jest.config` to point
-the latest `day` folder via tspaths.  This allows us to avoid updating anything
-for testing each day.
+If your solution passes the test, your `stats.json` will be updated accordingly. You can start a new exercise afterwards.
 
-#### Testing
-```
-yarn test
-```
+## Available exercises
 
-I have yet to create a testing strategy for next sets of algorithms, but we
-will get there when i cross that bridge.
-
-### Help wanted
-A simple way to specify test, thinking something like `tests.json` and `cat
-test.json 2> /dev/null` to specify the tests to run.  tests.json wouldn't be
-committed.
+- ArrayList
+- BFSGraphMatrix
+- BTBFS
+- BTInOrder
+- BTPostOrder
+- BTPreOrder
+- BinarySearchList
+- BubbleSort
+- CompareBinaryTrees
+- DFSGraphList
+- DFSOnBST
+- DoublyLinkedList
+- LRU
+- LinearSearchList
+- Map
+- MazeSolver
+- MinHeap
+- Queue
+- QuickSort
+- SinglyLinkedList
+- Stack
+- Trie
+- TwoCrystalBalls
