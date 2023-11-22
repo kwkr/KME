@@ -22,6 +22,9 @@ if (testRunData.numFailedTestSuites > 0) {
     const now = new Date();
     statsData.current.end = now.toISOString();
     const key = formatDate(now);
+    if (!statsData.history) {
+        statsData.history = {};
+    }
     if (!statsData.history[key]) {
         statsData.history[key] = [];
     }
